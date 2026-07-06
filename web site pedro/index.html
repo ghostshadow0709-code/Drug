@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#234B2A" />
+  <meta name="description" content="Pedro Drugs — Produtos naturais selecionados para o seu bem-estar." />
+
+  <title>Pedro Drugs — Natureza que Cuida da Sua Saúde</title>
+  <meta property="og:title" content="Pedro Drugs — Natureza que Cuida da Sua Saúde" />
+  <meta property="og:description" content="Óleos naturais, cristais, ervas e farinhas selecionadas para promover o seu bem-estar." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/favicon.png" />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js" defer></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ═══════════════════════════════════════════ CURSOR ═══ -->
+  <div class="cursor" id="cursor">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ LOADER ═══ -->
+  <div class="loader" id="loader">
+    <div class="loader__brand">
+      <span class="loader__letter">P</span>
+      <span class="loader__letter">E</span>
+      <span class="loader__letter">D</span>
+      <span class="loader__letter">R</span>
+      <span class="loader__letter">O</span>
+    </div>
+    <div class="loader__bar">
+      <div class="loader__progress" id="loaderProgress"></div>
+    </div>
+    <p class="loader__sub">Natureza que Cuida da Sua Saúde</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ NOISE OVERLAY ═══ -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════ NAVBAR ═══ -->
+  <header class="navbar" id="navbar">
+    <nav class="navbar__inner container">
+      <a class="navbar__logo" href="#hero" aria-label="Pedro Drugs Home">
+        <span class="navbar__logo-text">PEDRO DRUGS</span>
+      </a>
+
+      <ul class="navbar__links" role="list">
+        <li><a class="navbar__link" href="#hero">Início</a></li>
+        <li><a class="navbar__link" href="#categories">Categorias</a></li>
+        <li><a class="navbar__link" href="#products">Produtos</a></li>
+        <li><a class="navbar__link" href="#about">Sobre</a></li>
+        <li><a class="navbar__link" href="#contact">Contacto</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <form id="searchForm" class="search-form" role="search" aria-label="Pesquisar produtos">
+          <input type="search" id="searchInput" placeholder="Pesquisar produtos..." />
+        </form>
+        <button class="btn btn--outline navbar__cta magnetic" id="cartBtn" aria-label="Carrinho">
+          <span>Carrinho (0)</span>
+        </button>
+      </div>
+
+      <button class="navbar__burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <ul class="mobile-menu__links" role="list">
+        <li><a class="mobile-menu__link" href="#about">Sobre</a></li>
+        <li><a class="mobile-menu__link" href="#products">Produtos</a></li>
+        <li><a class="mobile-menu__link" href="#benefits">Benefícios</a></li>
+        <li><a class="mobile-menu__link" href="#services">Serviços</a></li>
+        <li><a class="mobile-menu__link" href="#contact">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════════════════════════════════════════ HERO ═══ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <img src="produtos%20para%20venda/haxixe.jpg" alt="Hero Pedro Drugs" loading="eager" />
+      </div>
+
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__vignette" aria-hidden="true"></div>
+
+      <!-- Floating orbs -->
+      <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+
+      <div class="hero__content container">
+        <p class="hero__eyebrow reveal-text">Pedro Drugs</p>
+        <h1 class="hero__title">
+          <span class="hero__title-line">Natureza que</span>
+          <span class="hero__title-line hero__title-line--gold">Cuida da Sua Saúde</span>
+        </h1>
+        <p class="hero__subtitle reveal-text">
+          Óleos naturais, ervas medicinais, cristais e farinhas selecionadas para promover o seu bem-estar.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--gold magnetic" href="#products">
+            <span class="btn__text">Comprar Agora</span>
+            <span class="btn__ripple" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator" aria-label="Scroll para baixo">
+        <span class="scroll-indicator__label">Scroll</span>
+        <div class="scroll-indicator__track">
+          <div class="scroll-indicator__thumb"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ MARQUEE STRIP ═══ -->
+    <div class="marquee-strip" aria-hidden="true">
+      <div class="marquee-strip__track">
+        <span>Natureza</span><span class="marquee-strip__dot">✦</span>
+        <span>Saúde</span><span class="marquee-strip__dot">✦</span>
+        <span>Bem-estar</span><span class="marquee-strip__dot">✦</span>
+        <span>Qualidade</span><span class="marquee-strip__dot">✦</span>
+        <span>Elegância</span><span class="marquee-strip__dot">✦</span>
+        <span>Confiança</span><span class="marquee-strip__dot">✦</span>
+        <span>Natureza</span><span class="marquee-strip__dot">✦</span>
+        <span>Saúde</span><span class="marquee-strip__dot">✦</span>
+        <span>Bem-estar</span><span class="marquee-strip__dot">✦</span>
+        <span>Qualidade</span><span class="marquee-strip__dot">✦</span>
+        <span>Elegância</span><span class="marquee-strip__dot">✦</span>
+        <span>Confiança</span><span class="marquee-strip__dot">✦</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ CATEGORIES ═══ -->
+    <section class="categories section" id="categories">
+      <div class="container">
+        <div class="section__header">
+          <p class="section__eyebrow">Categorias</p>
+          <h2 class="section__title">Explore as Nossas <em>Categorias</em></h2>
+        </div>
+
+        <div class="services__grid categories__grid">
+          <div class="service-card">
+            <h3 class="service-card__title">Óleos</h3>
+            <p class="service-card__desc">Óleos essenciais e vegetais de alta qualidade.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-card__title">Cristais</h3>
+            <p class="service-card__desc">Cristais selecionados para equilíbrio e bem-estar.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-card__title">Ervas</h3>
+            <p class="service-card__desc">Ervas medicinais e blends naturais.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-card__title">Farinhas</h3>
+            <p class="service-card__desc">Farinhas naturais e alternativas saudáveis.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-card__title">Novidades</h3>
+            <p class="service-card__desc">Lançamentos e exclusividades.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-card__title">Promoções</h3>
+            <p class="service-card__desc">Ofertas selecionadas com entrega rápida.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ FEATURED PRODUCTS ═══ -->
+    <section class="products section" id="products">
+      <div class="container">
+        <div class="section__header">
+          <p class="section__eyebrow">Em Destaque</p>
+          <h2 class="section__title">Produtos <em>Destaque</em></h2>
+        </div>
+
+        <div id="productsGrid" class="gallery__grid products__grid">
+          <div class="gallery__item">
+            <img src="produtos%20para%20venda/cabe%C3%A7o.jpg" alt="Cabeço" loading="lazy" />
+            <div class="gallery__overlay">
+              <div>
+                <strong>Cabeço</strong>
+                <div>€12.50</div>
+                <button class="btn btn--outline add-to-cart">Adicionar ao Carrinho</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery__item">
+            <img src="produtos%20para%20venda/coca%201.jpg" alt="Coca" loading="lazy" />
+            <div class="gallery__overlay">
+              <div>
+                <strong>Coca</strong>
+                <div>€90.00</div>
+                <button class="btn btn--outline add-to-cart">Adicionar ao Carrinho</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery__item gallery__item--large">
+            <img src="produtos%20para%20venda/haxixe%20pot%C3%AAncia%20n%C3%ADvel%203.jpg" alt="Haxixe Potência Nível 3" loading="lazy" />
+            <div class="gallery__overlay">
+              <div>
+                <strong>Haxixe Potência Nível 3</strong>
+                <div>€25.00</div>
+                <button class="btn btn--outline add-to-cart">Adicionar ao Carrinho</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery__item">
+            <img src="produtos%20para%20venda/haxixe.jpg" alt="Haxixe" loading="lazy" />
+            <div class="gallery__overlay">
+              <div>
+                <strong>Haxixe</strong>
+                <div>€9.00</div>
+                <button class="btn btn--outline add-to-cart">Adicionar ao Carrinho</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery__item">
+            <img src="produtos%20para%20venda/MD.jpg" alt="MD" loading="lazy" />
+            <div class="gallery__overlay">
+              <div>
+                <strong>MD</strong>
+                <div>€60.00</div>
+                <button class="btn btn--outline add-to-cart">Adicionar ao Carrinho</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery__item">
+            <img src="produtos%20para%20venda/metanfetamina.jpg" alt="Metanfetamina" loading="lazy" />
+            <div class="gallery__overlay">
+              <div>
+                <strong>Metanfetamina</strong>
+                <div>€100</div>
+                <button class="btn btn--outline add-to-cart">Adicionar ao Carrinho</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ BENEFITS ═══ -->
+    <section class="services section" id="benefits">
+      <div class="container">
+        <div class="section__header">
+          <p class="section__eyebrow">Porque Escolher-nos</p>
+          <h2 class="section__title">Benefícios do Pedro Drugs</h2>
+        </div>
+
+        <div class="services__grid">
+          <div class="service-card">
+            <h3 class="service-card__title">Produtos Naturais</h3>
+            <p class="service-card__desc">Ingredientes puros e cuidadosamente selecionados.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-card__title">Qualidade Garantida</h3>
+            <p class="service-card__desc">Controlo de qualidade em todas as etapas.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-card__title">Envio Rápido</h3>
+            <p class="service-card__desc">Logística eficiente para que receba rápido.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-card__title">Pagamento Seguro</h3>
+            <p class="service-card__desc">Compatível com Stripe, PayPal e gateways seguros.</p>
+          </div>
+          <div class="service-card">
+            <h3 class="service-card__title">Suporte ao Cliente</h3>
+            <p class="service-card__desc">Equipa dedicada para esclarecimentos e apoio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ ABOUT ═══ -->
+    <section class="about section" id="about">
+      <div class="container about__inner">
+
+        <div class="about__text">
+          <p class="section__eyebrow">Sobre Nós</p>
+          <h2 class="section__title about__heading">
+            Pedro Drugs —<br /><em>Natureza e Confiança.</em>
+          </h2>
+          <p class="about__body">
+            A Pedro Drugs nasceu com a missão de oferecer produtos naturais de elevada qualidade que promovam a saúde e o bem-estar. Selecionamos ingredientes puros e fornecedores responsáveis para garantir eficácia e segurança.
+          </p>
+          <p class="about__body">
+            Trabalhamos com processos rigorosos de controlo de qualidade e queremos ser o seu parceiro de confiança na jornada para uma vida mais saudável.
+          </p>
+          <div class="about__stats">
+            <div class="stat">
+              <span class="stat__number" data-target="24">0</span>
+              <span class="stat__unit">anos</span>
+              <span class="stat__label">de excelência</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number" data-target="340">0</span>
+              <span class="stat__unit">+</span>
+              <span class="stat__label">projetos únicos</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number" data-target="18">0</span>
+              <span class="stat__unit"></span>
+              <span class="stat__label">países presentes</span>
+            </div>
+          </div>
+          <a class="btn btn--gold magnetic" href="#services">
+            <span class="btn__text">Os Nossos Serviços</span>
+            <span class="btn__ripple" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="about__image-wrap">
+          <div class="about__image-frame">
+            <img src="produtos%20para%20venda/MD.jpg" alt="Produtos selecionados Pedro Drugs" loading="lazy" />
+            <div class="about__image-deco" aria-hidden="true"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ CINEMATIC ═══ -->
+    <section class="cinematic section" id="cinematic">
+      <div class="cinematic__bg" aria-hidden="true">
+        <img src="produtos%20para%20venda/coca%201.jpg" alt="Seleção de produtos Pedro Drugs" loading="lazy" />
+      </div>
+
+      <div class="cinematic__overlay" aria-hidden="true"></div>
+
+      <div class="cinematic__content container">
+        <p class="section__eyebrow">A Experiência</p>
+        <h2 class="cinematic__title">
+          Uma seleção<br /><em>cuidadosamente</em><br />apresentada.
+        </h2>
+        <a class="btn btn--gold magnetic cinematic__btn" href="#products">
+          <span class="btn__text">Explorar</span>
+          <span class="btn__ripple" aria-hidden="true"></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ SERVICES ═══ -->
+    <section class="services section" id="services">
+      <div class="container">
+        <div class="section__header">
+          <p class="section__eyebrow">O Que Fazemos</p>
+          <h2 class="section__title">Serviços <em>Premium</em></h2>
+        </div>
+
+        <div class="services__grid">
+
+          <div class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M24 4l3.09 9.51L37 13.18l-7.91 5.75 3.09 9.51L24 23.18l-8.18 5.26 3.09-9.51L11 13.18l9.91.33L24 4z" stroke="#234B2A" stroke-width="1.2" stroke-linejoin="round"/>
+                <circle cx="24" cy="36" r="8" stroke="#234B2A" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Seleção Curada</h3>
+            <p class="service-card__desc">Escolhemos cada produto com base em qualidade, origem e tradição para oferecer uma experiência consistente.</p>
+            <div class="service-card__arrow" aria-hidden="true">→</div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <rect x="8" y="8" width="32" height="32" rx="2" stroke="#234B2A" stroke-width="1.2"/>
+                <path d="M16 24h16M24 16v16" stroke="#234B2A" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Apoio Especializado</h3>
+            <p class="service-card__desc">Oferecemos orientação simples e atenciosa para ajudar cada cliente a encontrar o que melhor responde às suas necessidades.</p>
+            <div class="service-card__arrow" aria-hidden="true">→</div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M6 36L18 24l8 8 10-12 6 8" stroke="#234B2A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="24" cy="14" r="6" stroke="#234B2A" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Compra Sem Complicações</h3>
+            <p class="service-card__desc">A nossa experiência de compra é objetiva, clara e pensada para tornar cada passo mais tranquilo.</p>
+            <div class="service-card__arrow" aria-hidden="true">→</div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M24 8v32M8 24h32" stroke="#234B2A" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M12 12l24 24M36 12L12 36" stroke="#234B2A" stroke-width="0.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Produtos de Confiança</h3>
+            <p class="service-card__desc">Priorizamos origem, rigor e consistência em todos os produtos que apresentamos na nossa seleção.</p>
+            <div class="service-card__arrow" aria-hidden="true">→</div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <rect x="10" y="16" width="28" height="20" rx="2" stroke="#234B2A" stroke-width="1.2"/>
+                <path d="M18 16V12a6 6 0 0112 0v4" stroke="#234B2A" stroke-width="1.2" stroke-linecap="round"/>
+                <circle cx="24" cy="26" r="3" stroke="#234B2A" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Entrega Cuidada</h3>
+            <p class="service-card__desc">Disponibilizamos uma experiência de compra organizada, discreta e preparada para respeitar o seu tempo.</p>
+            <div class="service-card__arrow" aria-hidden="true">→</div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M24 10C16.268 10 10 16.268 10 24s6.268 14 14 14 14-6.268 14-14S31.732 10 24 10z" stroke="#234B2A" stroke-width="1.2"/>
+                <path d="M24 18v6l4 4" stroke="#234B2A" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Atendimento Personalizado</h3>
+            <p class="service-card__desc">Cada cliente recebe atenção dedicada para explorar a nossa seleção com confiança e transparência.</p>
+            <div class="service-card__arrow" aria-hidden="true">→</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ TESTIMONIALS ═══ -->
+    <section class="testimonials section" id="testimonials">
+      <div class="container">
+        <div class="section__header">
+          <p class="section__eyebrow">Testemunhos</p>
+          <h2 class="section__title">Vozes que <em>contam</em></h2>
+        </div>
+
+        <div class="testimonials__grid">
+
+          <div class="testimonial-card">
+            <div class="testimonial-card__quote" aria-hidden="true">"</div>
+            <p class="testimonial-card__text">
+              Produtos de altíssima qualidade. Senti a diferença nas minhas rotinas diárias — recomendo vivamente.
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-label="Foto do autor">
+                <img src="produtos%20para%20venda/cabe%C3%A7o.jpg" alt="Alexandre Monteiro" loading="lazy" />
+              </div>
+              <div>
+                <strong class="testimonial-card__name">Alexandre Monteiro</strong>
+                <span class="testimonial-card__role">Cliente regular</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card testimonial-card--featured">
+            <div class="testimonial-card__quote" aria-hidden="true">"</div>
+            <p class="testimonial-card__text">
+              Serviço rápido e produtos maravilhosos. O suporte ao cliente foi atencioso e eficaz.
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-label="Foto do autor">
+                <img src="produtos%20para%20venda/metanfetamina.jpg" alt="Isabela Ferreira" loading="lazy" />
+              </div>
+              <div>
+                <strong class="testimonial-card__name">Isabela Ferreira</strong>
+                <span class="testimonial-card__role">Cliente fidelizada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-card__quote" aria-hidden="true">"</div>
+            <p class="testimonial-card__text">
+              Excelente seleção de produtos naturais. A embalagem e a entrega foram perfeitas.
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-label="Foto do autor">
+                <img src="produtos%20para%20venda/MD.jpg" alt="Henrique Vasquez" loading="lazy" />
+              </div>
+              <div>
+                <strong class="testimonial-card__name">Henrique Vasquez</strong>
+                <span class="testimonial-card__role">Cliente recorrente</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ CTA FINAL ═══ -->
+    <section class="cta-section section" id="contact">
+      <div class="cta-section__bg" aria-hidden="true">
+        <img src="produtos%20para%20venda/haxixe%20pot%C3%AAncia%20n%C3%ADvel%203.jpg" alt="Contacto Pedro Drugs" loading="lazy" />
+      </div>
+
+      <div class="cta-section__overlay" aria-hidden="true"></div>
+
+      <div class="cta-section__content container">
+        <p class="section__eyebrow">Próximo Passo</p>
+        <h2 class="cta-section__title">
+          Pronto para<br /><em>explorar a nossa seleção?</em>
+        </h2>
+        <p class="cta-section__sub">
+          Entre em contacto para saber mais sobre os nossos produtos, disponibilidade e atendimento personalizado.
+        </p>
+        <div class="cta-section__actions">
+          <a class="btn btn--gold btn--large magnetic" href="mailto:contact@pedrodrugs.pt">
+            <span class="btn__text">Contacte-nos</span>
+            <span class="btn__ripple" aria-hidden="true"></span>
+          </a>
+          <a class="btn btn--ghost magnetic" href="tel:+351912345678">
+            <span class="btn__text">+351 912 345 678</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════ NEWSLETTER ═══ -->
+  <section class="newsletter section" id="newsletter">
+    <div class="container">
+      <div class="section__header">
+        <p class="section__eyebrow">Newsletter</p>
+        <h2 class="section__title">Receba as <em>Novidades</em></h2>
+      </div>
+      <form class="newsletter__form" role="form" aria-label="Inscreva-se na newsletter">
+        <div style="display:flex;gap:12px;max-width:640px;margin-inline:auto;">
+          <input type="email" placeholder="O seu email" aria-label="Email" style="flex:1;padding:14px;border-radius:4px;border:1px solid rgba(255,255,255,0.08);background:transparent;color:var(--white);" required />
+          <button class="btn btn--gold" type="submit">Receber Novidades</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">PEDRO DRUGS</span>
+        <p class="footer__tagline">Produtos naturais para o seu bem-estar</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <ul role="list">
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#products">Produtos</a></li>
+          <li><a href="#benefits">Benefícios</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__social">
+        <a href="#" aria-label="Instagram" class="footer__social-link">IG</a>
+        <a href="#" aria-label="LinkedIn" class="footer__social-link">LI</a>
+        <a href="#" aria-label="Behance" class="footer__social-link">BE</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p class="footer__copy">© 2026 Pedro Drugs. Todos os direitos reservados.</p>
+      <p class="footer__credits">Natural • Confiável • Elegante</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
